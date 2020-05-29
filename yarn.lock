@@ -9182,6 +9182,20 @@ react-app-polyfill@^1.0.6:
     regenerator-runtime "^0.13.3"
     whatwg-fetch "^3.0.0"
 
+react-bootstrap-table-next@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/react-bootstrap-table-next/-/react-bootstrap-table-next-4.0.2.tgz#d6032de8052c4d95d2364afa4a263f9dd4827344"
+  integrity sha512-s4D13KRoJQFvICfBVT8bPRj15BECHj22NQbyG0hk+Ho4NGWgU6qSODcCo0C4R0n4QqhMt33tbvzLOZfoi+99gw==
+  dependencies:
+    classnames "^2.2.5"
+    react-transition-group "^4.2.0"
+    underscore "1.9.1"
+
+react-bootstrap-table2-paginator@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/react-bootstrap-table2-paginator/-/react-bootstrap-table2-paginator-2.1.2.tgz#a62151909e594719db568cede6e5d2962cbf8ddb"
+  integrity sha512-LC5znEphhgKJvaSY1q8d+Gj0Nc/1X+VS3tKJjkmWmfv9P61YC/BnwJ+aoqEmQzsLiVGowrzss+i/u+Tip5H+Iw==
+
 react-bootstrap@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/react-bootstrap/-/react-bootstrap-1.0.1.tgz#044b51f34a9db8e17dbfb321a71267a8d6ad11b4"
@@ -9473,7 +9487,7 @@ react-transition-group@^2.2.1, react-transition-group@^2.5.3:
     prop-types "^15.6.2"
     react-lifecycles-compat "^3.0.4"
 
-react-transition-group@^4, react-transition-group@^4.0.0, react-transition-group@^4.4.0:
+react-transition-group@^4, react-transition-group@^4.0.0, react-transition-group@^4.2.0, react-transition-group@^4.4.0:
   version "4.4.1"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.4.1.tgz#63868f9325a38ea5ee9535d828327f85773345c9"
   integrity sha512-Djqr7OQ2aPUiYurhPalTrVy9ddmFCCzwhqQmtN+J3+3DzLO209Fdr70QrN8Z3DsglWql6iY1lDWAfpFiBtuKGw==
@@ -11009,6 +11023,11 @@ uncontrollable@^7.0.0:
     "@types/react" "^16.9.11"
     invariant "^2.2.4"
     react-lifecycles-compat "^3.0.4"
+
+underscore@1.9.1:
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.9.1.tgz#06dce34a0e68a7babc29b365b8e74b8925203961"
+  integrity sha512-5/4etnCkd9c8gwgowi5/om/mYO5ajCaOgdzj/oW+0eQV9WxKBDZw5+ycmKmeaTXjInS/W0BzpGLo2xR2aBwZdg==
 
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"
