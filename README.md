@@ -1,3 +1,16 @@
+To run the back-end please following commands
+
+- cd backend
+- nodemon server
+
+-
+Run the front-end in another cmd, in the root directory
+-
+- npm start 
+ or 
+-yarn start
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
