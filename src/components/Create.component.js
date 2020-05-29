@@ -4,7 +4,8 @@ import DatePicker from 'react-datepicker';
 import { Container } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
-
+import Phones from './Phones.component';
+import Emails from './Emails.component';
 
 export default class Create extends Component{
     constructor(props){
@@ -16,27 +17,39 @@ export default class Create extends Component{
         this.state = {
             username : '',
             date : new Date(),
-            phones: [],
-            emails: []
+            phones: [{ index : Math.random()}],
+            emails: [{ index : Math.random()}]
         }
        
     }
     
-    componentDidMount(){
-        const val = (<input type = "text" name = "phone" 
-                         required
-                         className = "form-control"
-                     />);
-        let p = this.state.phones;
-        p.push(val);
-        this.setState({phones: p});      
-        console.log(this.state.phones);
+    addNewRowPhone = (e) => {
+        this.setState((prevState) => ({
+            phones: [...prevState.phones, { index: Math.random()}]
+        }));
+    }
+
+    clickOnDeletePhone(record) {
+        this.setState({
+            phones: this.state.phones.filter(r => r !== record)
+        });
     }
     
     onChangeDate(date){
         this.setState({
             date : date
         })
+    }
+    addNewRowEmail = (e) => {
+        this.setState((prevState) => ({
+            emails: [...prevState.emails, { index: Math.random()}]
+        }));
+    }
+
+    clickOnDeleteEmail(record) {
+        this.setState({
+            emails: this.state.emails.filter(r => r !== record)
+        });
     }
 
     onSubmit(e){
@@ -84,8 +97,8 @@ export default class Create extends Component{
         }));
     }
     render(){
-        let phones = this.state.phones;
-        let emails = this.state.emails;
+        let {phones} = this.state;
+        let {emails} = this.state;
         return(
             <Container maxWidth="sm">
              <form onSubmit = {this.onSubmit}>
@@ -97,52 +110,39 @@ export default class Create extends Component{
                      /></label>
                  </div>
                 <div className = "form-group">
-                    <label>Phone: 
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th className="required" >Phone Numbers :</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <Phones add={this.addNewRowPhone} delete={this.clickOnDeletePhone.bind(this)} phones={phones} />
+                        </tbody>
+                        <tfoot>
+                            <tr><td colSpan="4">
+                                <button onClick={this.addNewRowPhone} type="button" className="btn btn-primary text-center"><i className="fa fa-plus-circle" aria-hidden="true"></i></button>
+                            </td></tr>
+                        </tfoot>
+                    </table>
                     
-                    {
-                        phones.map((val, idx) => {
-                            let tagId = 'p-${idx}'
-                            return(
-                                <div key = {idx}>
-                                    <input
-                                       type  = "text"
-                                       name = "phone"
-                                       id = {tagId}
-                                       className = "form-control"
-                                       required
-                                     />
-                                </div>
-                            )
-                        })
-                    }
-                    <Button size="small" variant="outlined" color="secondary" value = "addPhone" onClick = {this.addPhone} >
-                     addPhone
-                    </Button>
-                    
-                    </label>
                </div>
                <div className = "form-group">
-                    <label>Email: 
-                    {
-                        emails.map((val, idx) => {
-                            let tagId = 'p-${idx}'
-                            return(
-                                <div key = {idx}>
-                                    <input
-                                       type  = "text"
-                                       name = "email"
-                                       id = {tagId}
-                                       className = "form-control"
-                                       required
-                                     />
-                                </div>
-                            )
-                        })
-                    }
-                    <Button size="small" variant="outlined" color="secondary" value = "addEmail" onClick = {this.addEmail} >
-                     addEmail
-                    </Button>
-                    </label>
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th className="required" >Emails :</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <Emails add={this.addNewRowEmail} delete={this.clickOnDeleteEmail.bind(this)} emails={emails} />
+                        </tbody>
+                        <tfoot>
+                            <tr><td colSpan="4">
+                                <button onClick={this.addNewRowEmail} type="button" className="btn btn-primary text-center"><i className="fa fa-plus-circle" aria-hidden="true"></i></button>
+                            </td></tr>
+                        </tfoot>
+                    </table>
                </div>
                <div className = "form-group">
                    <label>
