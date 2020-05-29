@@ -101,11 +101,20 @@ export default class Create extends Component{
             <Container maxWidth="sm">
              <form onSubmit = {this.onSubmit}>
                  <div className = "form-group">
-                     <label>Username :
-                     <input type = "text" name = "username" required className = "form-control"
-                      value =  {this.state.username}
-                      onChange={this.onChangeUserName}
-                     /></label>
+                     <table className="table">
+                       <thead>
+                            <tr>
+                                <th className="required" >Username :</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <input type = "text" name = "username" required className = "form-control"
+                                value =  {this.state.username}
+                                onChange={this.onChangeUserName}
+                        />
+                        </tbody>
+                     
+                     </table>
                  </div>
                 <div className = "form-group">
                     <table className="table">

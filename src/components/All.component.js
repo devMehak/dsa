@@ -3,7 +3,9 @@ import {Link} from 'react-router-dom';
 import axios from 'axios';
 import SearchBar from './SearchBar.component';
 import ContactTable from './ContactTable.component';
-
+import { Container } from '@material-ui/core';
+import Jumbotron from 'react-bootstrap/Jumbotron';
+import { Button } from '@material-ui/core';
 
 export default class All extends Component{
     constructor(props){
@@ -44,6 +46,8 @@ export default class All extends Component{
     }
     render(){
         return(
+            <Jumbotron>
+            <Container fixed>
             <div>
                 
                 <SearchBar
@@ -58,12 +62,14 @@ export default class All extends Component{
                    filterText={this.state.filterText}
                    deleteContact = {this.deleteContact}
                 />
-                <button>
-                <Link to = {"/create"}>create</Link>
-                </button>
+                <Button variant="outlined" color="primary">
+                <Link to = {"/create"}>create <i className="fa fa-plus-circle" aria-hidden="true"></i></Link>
+                </Button>
                
                 
             </div>
+            </Container>
+            </Jumbotron>
         )
     }
 }

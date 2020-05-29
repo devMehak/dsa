@@ -2,6 +2,8 @@ import React, {Component, useState} from 'react';
 import {Link } from 'react-router-dom';
 import Collapse from 'react-bootstrap/Collapse'
 import { Button} from 'react-bootstrap';
+import Paper from '@material-ui/core/Paper';
+
 function ContactRow(props){
     const [open, setOpen] = useState(false);
     return(
@@ -16,6 +18,7 @@ function ContactRow(props){
                     onClick={() => setOpen(!open)}
                     aria-controls="example-fade-text"
                     aria-expanded={open}
+                    className = "collapsible"
                 >
                     {props.contact.username}
                 </Button>
@@ -24,6 +27,7 @@ function ContactRow(props){
                     <div className = "context">
                     <span>{props.contact.dob === null ?<span> </span> : props.contact.dob.substring(0,10) }</span>
                     <br/>
+                    <div className = "flex-container">
                     <div className = "phones">
                         {props.contact.phone.map(phoneNumber =>
                             <p>
@@ -42,6 +46,8 @@ function ContactRow(props){
                     <div>
                         <Link to = {"/edit/" + props.contact._id}>Edit</Link> | <a href = "#" onClick={() => {props.deleteContact(props.contact._id)}}>delete</a>
                     </div>
+                    </div>
+                    
                 </div>
                     </div>
                 </Collapse>
@@ -86,6 +92,7 @@ function ContactRow(props){
          });
          return(
             <table className = "table">
+                <Paper elevation={3} />
                 <tbody>
                     {rows}
                 </tbody>
